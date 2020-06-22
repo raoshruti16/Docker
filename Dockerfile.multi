@@ -1,0 +1,24 @@
+
+FROM golang:latest
+
+RUN mkdir /app
+
+WORKDIR /app
+
+COPY select.go .
+
+COPY select.html .
+
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o form
+
+
+
+FROM alpine:3.10
+
+RUN apk --no-cache add ca-certificates
+
+WORKDIR /root/
+
+COPY --from=0 app .
+
+CMD ["./select"]
