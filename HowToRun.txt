@@ -2,9 +2,9 @@
 
 
 
-sudo docker build -t myform .
-sudo docker images
-sudo docker run -it -p 8080:9000 myform
+docker build -t webapp .
+docker images
+docker run -it -p 8080:9000 webapp
 
 
 
@@ -13,6 +13,6 @@ sudo docker run -it -p 8080:9000 myform
 
 
 docker login --username=use_your_own --password=use_your_own
-sudo docker tag 7797f0630cd4 suryanaicker/myform:form
-sudo docker push suryanaicker/myform
-sudo docker push suryanaicker/myform:form
+docker tag 7797f0630cd4 shruti161298/webapp:select
+docker push shruti161298/webapp
+docker push shruti161298/webapp:select
