@@ -4,7 +4,7 @@ import (
   "net/http"
   "log"
   "html/template"
-  "os"
+   "os"
 )
 
 
@@ -26,7 +26,8 @@ type PageVariables struct {
 func main() {
 	port := os.Getenv("PORT")
 	http.HandleFunc("/", DisplayRadioButtons)
-	http.ListenAndServe(":"+port, nil)
+  	http.HandleFunc("/selected", UserSelected)
+  	http.ListenAndServe(":"+port, nil)
 }
 
 
